@@ -1,3 +1,23 @@
+# Array
+
+<div align="center">
+
+## 📘 Concepts
+
+</div>
+
+---
+
+<div align="center">
+
+## 💻 Questions
+
+</div>
+
+- Search an Element (Linear Search)
+
+---
+
 # Linear Search
 
 Linear Search is a searching algorithm that checks elements one by one until the target element is found.
