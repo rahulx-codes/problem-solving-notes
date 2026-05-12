@@ -4,6 +4,15 @@ Linear Search is a searching algorithm that checks elements one by one until the
 
 ---
 
+## Algorithm
+
+1. Start from index `0`
+2. Compare each element with target element `x`
+3. If element matches, return index
+4. If element is not found, return `-1`
+
+---
+
 ## Pseudo Code
 
 ```text
@@ -63,4 +72,3 @@ O(1)
 
 ## Disadvantages
 - Slow for large datasets
-```
