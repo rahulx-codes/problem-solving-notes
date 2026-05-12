@@ -1,5 +1,5 @@
 ## Function 
-> A function (method in Java) is a resuble bolck of code that preform a specific task.
+A function (method in Java) is a resuble bolck of code that preform a specific task.
 ---
 
 # Basic Function Syntax
@@ -52,7 +52,6 @@ System.out.println(sum);
 ---
 
 # Parameters
-
 Parameters are variables written inside the function definition.
 
 ### Important Points
@@ -62,7 +61,6 @@ Parameters are variables written inside the function definition.
 
 
 #  Arguments
-
 Arguments are actual values passed during function calling.
 
 ### Important Points
