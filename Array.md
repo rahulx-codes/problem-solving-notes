@@ -96,6 +96,7 @@ O(1)
 
 ---
 
+
 # Find Largest Element in Array
 
 ## Concept
@@ -105,6 +106,20 @@ O(1)
 - Traverse array from index `1`
 - If current element is greater than `max`
   → update `max`
+
+---
+
+## Algorithm
+
+1. Start
+2. Take first element as `max`
+3. Traverse array from index `1`
+4. Compare current element with `max`
+5. If current element is greater
+   → update `max`
+6. Repeat until array ends
+7. Return `max`
+8. End
 
 ---
 
@@ -122,7 +137,7 @@ Return max
 
 ---
 
-## ⏱ Complexity
+## Complexity
 
 | Type | Complexity |
 |---|---|
@@ -131,7 +146,7 @@ Return max
 
 ---
 
-## ⚠ Important Point
+## Important Point
 
 Array should not be empty because:
 
