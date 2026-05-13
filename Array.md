@@ -15,6 +15,7 @@
 </div>
 
 - Search an Element (Linear Search)
+- Largest in Array
 
 ---
 
@@ -92,3 +93,51 @@ O(1)
 
 ## Disadvantages
 - Slow for large datasets
+
+---
+
+# Find Largest Element in Array
+
+## Concept
+
+- Largest element means maximum value in array
+- Assume first element as largest
+- Traverse array from index `1`
+- If current element is greater than `max`
+  → update `max`
+
+---
+
+## Pseudo Code
+
+```text
+Take max = first element
+
+Loop from index 1 to n-1
+    If current element > max
+        Update max
+
+Return max
+```
+
+---
+
+## ⏱ Complexity
+
+| Type | Complexity |
+|---|---|
+| Time | O(n) |
+| Space | O(1) |
+
+---
+
+## ⚠ Important Point
+
+Array should not be empty because:
+
+```java
+arr[0]
+```
+
+can cause error.
+
