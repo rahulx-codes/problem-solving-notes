@@ -16,6 +16,7 @@
 
 - Search an Element (Linear Search)
 - Largest in Array
+- Find the second largest in Array
 
 ---
 
@@ -156,3 +157,122 @@ arr[0]
 
 can cause error.
 
+---
+
+
+
+# Find Second Largest Element in Array
+
+---
+
+# Concept
+
+The second largest element is the element that is smaller than the largest element but greater than all other elements in the array.
+
+Instead of sorting the array, we use two variables:
+
+- Largest
+- Second Largest
+
+This helps us solve the problem in a single traversal.
+
+---
+
+# Core Logic
+
+Whenever a new larger element is found:
+
+```text
+Old largest → becomes second largest
+New element → becomes largest
+```
+
+---
+
+# Algorithm
+
+1. Initialize:
+   - largest = minimum possible value
+   - secondLargest = minimum possible value
+
+2. Traverse the array.
+
+3. If current element is greater than largest:
+   - Move largest into secondLargest
+   - Update largest
+
+4. Else if current element is:
+   - greater than secondLargest
+   - and not equal to largest
+   
+   then update secondLargest.
+
+5. Return secondLargest.
+
+---
+
+#  Pseudocode
+
+```text
+START
+
+largest = -∞
+secondLargest = -∞
+
+FOR each element in array
+
+    IF element > largest
+
+        secondLargest = largest
+        largest = element
+
+    ELSE IF element > secondLargest
+            AND element != largest
+
+        secondLargest = element
+
+RETURN secondLargest
+
+END
+```
+
+---
+
+# ⏱ Time Complexity
+
+```text
+O(n)
+```
+
+Because the array is traversed only once.
+
+---
+
+# Space Complexity
+
+```text
+O(1)
+```
+
+No extra data structure is used.
+
+---
+
+# Advantages
+
+- No sorting required
+- Single traversal solution
+- Optimized approach
+- Faster than sorting
+- Handles duplicate largest values correctly
+
+---
+
+# Sorting vs Optimized Approach
+
+| Approach | Time Complexity |
+|---|---|
+| Sorting | O(n log n) |
+| Single Traversal | O(n) |
+
+The single traversal approach is more optimized.
