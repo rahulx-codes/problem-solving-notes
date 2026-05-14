@@ -5,7 +5,7 @@
 
 # Find Next Prime Number
 
-## 📘 Concept
+## Concept
 
 A prime number is a number that is divisible only by:
 
@@ -20,7 +20,7 @@ A prime number is a number that is divisible only by:
 
 ---
 
-# 🚀 Algorithm
+# Algorithm
 
 1. Start checking from `n + 1`
 2. Skip even numbers
@@ -32,7 +32,7 @@ A prime number is a number that is divisible only by:
 
 ---
 
-# 🧠 Pseudocode
+# Pseudocode
 
 ## Find Next Prime
 
@@ -76,7 +76,7 @@ FUNCTION isPrime(n)
 
 ---
 
-# ⚡ Optimization Used
+# Optimization Used
 
 ## 1. Skip Even Numbers
 
@@ -106,7 +106,7 @@ Because factors repeat after square root.
 
 ---
 
-# 💡 Main Logic
+# Main Logic
 
 ```java
 while (!isPrime(num)) {
@@ -123,7 +123,7 @@ Meaning:
 
 ---
 
-# 🧪 Dry Run
+# Dry Run
 
 ## Input
 
