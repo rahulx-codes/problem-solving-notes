@@ -238,7 +238,7 @@ END
 
 ---
 
-# ⏱ Time Complexity
+#  Time Complexity
 
 ```text
 O(n)
