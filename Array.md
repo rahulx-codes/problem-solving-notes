@@ -231,6 +231,12 @@ FOR each element in array
 
         secondLargest = element
 
+IF secondLargest == -∞
+
+    RETURN -1
+
+ELSE
+
 RETURN secondLargest
 
 END
