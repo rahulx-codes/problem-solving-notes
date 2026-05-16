@@ -17,6 +17,7 @@
 - Search an Element (Linear Search)
 - Largest in Array
 - Find the second largest in Array
+- Reverse of Array
 
 ---
 
