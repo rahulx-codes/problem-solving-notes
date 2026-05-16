@@ -282,3 +282,143 @@ No extra data structure is used.
 | Single Traversal | O(n) |
 
 The single traversal approach is more optimized.
+
+
+---
+
+
+# Reverse Array
+
+Reverse Array means changing the order of elements in an array.
+
+The first element becomes the last element and the last element becomes the first element.
+
+---
+
+## Algorithm
+
+1. Initialize:
+   - `first = 0`
+   - `last = arr.length - 1`
+
+2. Run loop while:
+   ```text
+   first < last
+   ```
+
+3. Swap:
+   - `arr[first]`
+   - `arr[last]`
+
+4. Move pointers:
+   - `first++`
+   - `last--`
+
+5. Repeat until pointers meet
+
+---
+
+## Pseudo Code
+
+```text
+START
+
+first = 0
+last = n - 1
+
+WHILE first < last
+
+    temp = arr[first]
+    arr[first] = arr[last]
+    arr[last] = temp
+
+    first++
+    last--
+
+END WHILE
+
+END
+```
+
+---
+
+## Example
+
+### Input
+
+```text
+arr = [2, 4, 6, 8, 10]
+```
+
+### Output
+
+```text id="3td6lh"
+[10, 8, 6, 4, 2]
+```
+
+---
+
+## Dry Run
+
+### Initial Array
+
+```text id="y7cz8r"
+[2, 4, 6, 8, 10]
+```
+
+---
+
+### Step 1
+
+```text id="mqvjyl"
+Swap 2 and 10
+```
+
+Array becomes:
+
+```text id="1mg42v"
+[10, 4, 6, 8, 2]
+```
+
+---
+
+### Step 2
+
+```text id="ddx56d"
+Swap 4 and 8
+```
+
+Array becomes:
+
+```text id="g7f4qx"
+[10, 8, 6, 4, 2]
+```
+
+---
+
+## Time Complexity
+
+| Case | Complexity |
+|------|------------|
+| Best Case | O(n) |
+| Worst Case | O(n) |
+
+---
+
+## Space Complexity
+
+```text id="hhj73v"
+O(1)
+```
+
+---
+
+## Key Points
+
+- Uses Two Pointer Technique
+- Reverses array in-place
+- No extra array required
+- Efficient and optimized solution
+
+
+
