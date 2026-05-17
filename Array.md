@@ -422,5 +422,74 @@ O(1)
 - No extra array required
 - Efficient and optimized solution
 
+---
 
+# Sum of All Array Elements
+
+## Concept
+
+To find the sum of all elements,
+traverse the array and keep adding each element into a variable called `sum`.
+
+Initially:
+
+sum = 0
+
+Each array element is added one by one.
+
+---
+
+## Example
+
+Input:
+
+[1, 2, 3, 4]
+
+Process:
+
+0 + 1 = 1
+1 + 2 = 3
+3 + 3 = 6
+6 + 4 = 10
+
+Output:
+
+10
+
+---
+
+## Algorithm
+
+1. Create a variable `sum` and initialize it with 0.
+2. Traverse all array elements.
+3. Add each element into `sum`.
+4. Print or return the final sum.
+
+---
+
+## Pseudocode
+
+SET sum = 0
+
+FOR each element in array
+
+    sum = sum + element
+
+PRINT sum
+
+---
+
+## Time Complexity
+
+O(n)
+
+Because array is traversed once.
+
+---
+
+## Space Complexity
+
+O(1)
+
+No extra space is used.
 
