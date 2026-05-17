@@ -18,6 +18,7 @@
 - Largest in Array
 - Find the second largest in Array
 - Reverse of Array
+- Sum All Array Elements
 
 ---
 
