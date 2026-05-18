@@ -1,4 +1,4 @@
-# Majority Element
+# Majority Element — Boyer Moore Voting Algorithm
 
 ## Problem Statement
 
@@ -13,118 +13,101 @@ If no such element exists, return `-1`.
 Input:
 
 ```text
-nums = [2, 2, 1, 2, 3, 2, 2]
+nums = [1, 1, 2, 1, 3, 5, 1]
 ```
 
 Output:
 
 ```text
-2
+1
 ```
 
 Explanation:
 
 ```text
-2 appears 5 times
+1 appears 4 times
 Array size = 7
 
 7 / 2 = 3
 
-5 > 3
+4 > 3
 ```
 
-So `2` is the majority element.
+So `1` is the majority element.
 
 ---
 
-# Brute Force Idea
-
-For every element:
-
-- Count how many times it appears
-- Check if frequency is greater than `n / 2`
-
-If yes:
+# Algorithm Used
 
 ```text
-Return that element
+Boyer Moore Voting Algorithm
 ```
 
-Otherwise:
-
-```text
-Return -1
-```
+This is the optimal solution for Majority Element problem.
 
 ---
 
-# Algorithm
+# Core Idea
 
-1. Traverse array using outer loop
-2. For every element, count frequency using inner loop
-3. If frequency > n/2
-4. Return element
-5. If no majority found, return -1
+Different elements cancel each other.
+
+The majority element survives because its frequency is greater than all other elements combined.
+
+---
+
+# Algorithm Steps
+
+1. Find a possible candidate
+2. Verify candidate frequency
+3. Return candidate if frequency > n/2
+4. Otherwise return -1
+
+---
+
+# Candidate Selection Logic
+
+We maintain:
+
+```java
+candidate
+count
+```
+
+Rules:
+
+- If count becomes 0 → choose new candidate
+- Same element → count++
+- Different element → count--
 
 ---
 
 # Pseudocode
 
 ```text
-FOR each element i
+SET candidate = 0
+SET count = 0
 
-    count = 0
+FOR each number in array
 
-    FOR each element j
+    IF count == 0
+        candidate = current number
 
-        IF arr[i] == arr[j]
-            count++
+    IF current number == candidate
+        count++
+    ELSE
+        count--
 
-    IF count > n/2
-        RETURN arr[i]
+SET freq = 0
 
-RETURN -1
-```
+FOR each number in array
 
----
+    IF number == candidate
+        freq++
 
-# Dry Run
-
-Array:
-
-```text
-[2, 2, 1, 2, 3, 2, 2]
-```
-
----
-
-## Step 1
-
-Current element:
-
-```text
-2
-```
-
-Count occurrences:
-
-```text
-2 → 5 times
-```
-
-Check:
-
-```text
-5 > 7/2
-5 > 3
-```
-
-True.
-
-Return:
-
-```text
-2
+IF freq > n/2
+    RETURN candidate
+ELSE
+    RETURN -1
 ```
 
 ---
@@ -134,47 +117,96 @@ Return:
 ```java
 public class MajorityElement {
 
-    public static int solution(int[] nums) {
+    public static int findMajorityElement(int[] nums) {
 
-        for (int i = 0; i < nums.length; i++) {
+        int candidate = 0;
+        int count = 0;
 
-            int count = 0;
+        // Step 1: Find Candidate
+        for (int num : nums) {
 
-            for (int j = 0; j < nums.length; j++) {
-
-                if (nums[i] == nums[j]) {
-                    count++;
-                }
+            if (count == 0) {
+                candidate = num;
             }
 
-            if (count > nums.length / 2) {
-                return nums[i];
+            count += (num == candidate) ? 1 : -1;
+        }
+
+        // Step 2: Verify Candidate
+        int freq = 0;
+
+        for (int num : nums) {
+
+            if (num == candidate) {
+                freq++;
             }
         }
 
-        return -1;
+        return freq > nums.length / 2 ? candidate : -1;
     }
 
     public static void main(String[] args) {
 
-        int[] nums = {2, 2, 1, 2, 3, 2, 2};
+        int[] arr1 = {1, 1, 2, 1, 3, 5, 1};
+        int[] arr2 = {7};
+        int[] arr3 = {2, 13};
 
-        System.out.println(solution(nums));
+        System.out.println(findMajorityElement(arr1));
+        System.out.println(findMajorityElement(arr2));
+        System.out.println(findMajorityElement(arr3));
     }
 }
 ```
 
 ---
 
+# Dry Run
+
+Array:
+
+```text
+[1, 1, 2, 1, 3, 5, 1]
+```
+
+| Current Number | Candidate | Count |
+|---|---|---|
+| 1 | 1 | 1 |
+| 1 | 1 | 2 |
+| 2 | 1 | 1 |
+| 1 | 1 | 2 |
+| 3 | 1 | 1 |
+| 5 | 1 | 0 |
+| 1 | 1 | 1 |
+
+Final Candidate:
+
+```text
+1
+```
+
+Verification:
+
+```text
+1 appears 4 times
+```
+
+Return:
+
+```text
+1
+```
+
+---
+
 # Time Complexity
 
-Outer loop:
+Candidate Selection:
 
 ```text
 O(n)
 ```
 
-Inner loop:
+Verification:
 
 ```text
 O(n)
@@ -183,7 +215,7 @@ O(n)
 Total:
 
 ```text
-O(n²)
+O(n)
 ```
 
 ---
@@ -198,31 +230,86 @@ O(1)
 
 ---
 
-# Advantages
+# Why This Algorithm is Best?
 
-- Easy to understand
-- Beginner friendly
-- Simple logic
+| Approach | Time | Space |
+|---|---|---|
+| Brute Force | O(n²) | O(1) |
+| HashMap | O(n) | O(n) |
+| Boyer Moore | O(n) | O(1) |
 
 ---
 
-# Disadvantages
+# Advantages
 
-- Slow for large arrays
-- Uses nested loops
-- Not optimal for interviews
+- Optimal solution
+- No extra memory
+- Fast execution
+- Interview favorite algorithm
+
+---
+
+# Edge Cases
+
+## Single Element
+
+```text
+[7]
+```
+
+Output:
+
+```text
+7
+```
+
+---
+
+## No Majority Element
+
+```text
+[2, 13]
+```
+
+Output:
+
+```text
+-1
+```
+
+---
+
+## All Elements Same
+
+```text
+[5, 5, 5, 5]
+```
+
+Output:
+
+```text
+5
+```
 
 ---
 
 # Final Conclusion
 
-The Brute Force approach checks frequency of every element using nested loops.
-
-Complexity:
+Boyer Moore Voting Algorithm solves the Majority Element problem using:
 
 ```text
-Time  → O(n²)
+Candidate Selection
++
+Cancellation Logic
++
+Verification
+```
+
+Final Complexity:
+
+```text
+Time  → O(n)
 Space → O(1)
 ```
 
-Good for learning basic array logic before optimized approaches like HashMap and Boyer Moore Voting Algorithm.
+This makes it the optimal solution.
